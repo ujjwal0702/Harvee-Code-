@@ -2,6 +2,26 @@
 
 This submission uses **Python and Playwright**. It targets only the public Sauce Demo practice store. It does not use Selenium; the assessment asks for one UI automation framework, and Playwright is the selected framework.
 
+[GitHub repository](https://github.com/ujjwal0702/Harvee-Code-)
+
+## Project structure
+
+```text
+src/
+  config.py             Site URL and configurable practice-user credentials
+  pages/                Page objects for login, inventory, cart, and checkout
+tests/
+  conftest.py           Pytest report setup and manual-case result mapping
+  test_shop_checkout.py Automated Sauce Demo UI tests
+ANSWERS.md              Manual test cases and assessment answers
+AI_USAGE.md             Notes on AI assistance used for this assessment
+pytest.ini              Pytest paths, browser artifacts, and report options
+requirements.txt        Python test dependencies
+report.css              Styling for the generated HTML test report
+```
+
+The tests use page objects in `src/pages/` to keep browser interactions separate from test assertions. Shared URL and credential settings are in `src/config.py`; environment variables can override the practice-site defaults.
+
 ## Setup and run
 
 Requires Python 3.10 or later.
@@ -14,7 +34,7 @@ playwright install chromium
 pytest
 ```
 
-By default, the suite uses Sauce Demo's published practice credentials. Override configuration with environment variables when needed: `BASE_URL`, `STANDARD_USER`, `LOCKED_OUT_USER`, `PROBLEM_USER`, `PERFORMANCE_GLITCH_USER`, `ERROR_USER`, `VISUAL_USER`, and `SAUCE_PASSWORD`. The `.env.example` file documents the names; pytest does not load a `.env` file automatically.
+By default, the suite uses Sauce Demo's published practice credentials. Override configuration with environment variables when needed: `BASE_URL`, `STANDARD_USER`, `LOCKED_OUT_USER`, `PROBLEM_USER`, `PERFORMANCE_GLITCH_USER`, `ERROR_USER`, `VISUAL_USER`, and `SAUCE_PASSWORD`. These settings are defined in `src/config.py`. Pytest does not load a `.env` file automatically, so set the variables in your shell or CI environment before running tests.
 
 Pytest runs Chromium, saves screenshots for failed tests under `test-results/`, and writes a styled, self-contained HTML report to `reports/report.html` plus a JUnit XML report to `reports/junit.xml`. The HTML report opens with run metrics, then shows the manual case register from `ANSWERS.md` with automated run status; use **Show environment** in the top-right of the summary to reveal runtime details. Expand rows in **Automated execution details** for INFO logs and failure evidence. Run `pytest -k TC04` to select a case, or `pytest --browser firefox` after installing the Firefox browser with `playwright install firefox`.
 
