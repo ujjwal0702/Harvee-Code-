@@ -54,7 +54,7 @@ Automate stable, high-value UI journeys: login acceptance/rejection, full-list s
 
 ## Section A2: Automation notes
 
-The runnable suite is in `tests/test_shop_checkout.py`; page objects in `src/pages/` keep selectors and UI actions out of test bodies. Each test receives a fresh Playwright page/context. `pytest.ini` configures failure screenshots, captured INFO logs, a styled HTML report, and JUnit XML output. Test data and the base URL are read from `src/config.py` environment-backed settings.
+The runnable suite is in `tests/test_shop_checkout.py`; page objects in `src/pages/` keep selectors and UI actions out of test bodies. Each test receives a fresh Playwright page/context. `pytest.ini` configures failure screenshots, captured INFO logs, a styled HTML report at `reports/report.html`, and JUnit XML output at `reports/junit.xml`. Test data and the base URL are read from `src/config.py` environment-backed settings.
 
 ## Section B1: Review of the AI-generated test
 
