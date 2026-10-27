@@ -4,6 +4,8 @@ This submission uses **Python and Playwright**. It targets only the public Sauce
 
 [GitHub repository](https://github.com/ujjwal0702/Harvee-Code-)
 
+Download the documentation: [PDF](docs/Project-Documentation.pdf) | [Word](docs/Project-Documentation.docx)
+
 ## Project structure
 
 ```text
